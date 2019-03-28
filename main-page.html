@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主菜单</title>
+    <link rel="stylesheet" href="./main-page.css">
+    <link rel="stylesheet" href="./table-style.css">
+    <link rel="stylesheet" href="./room-style.css">
+    <link rel="stylesheet" href="./comments.css">
+    <link rel="stylesheet" href="./css/incomeExp.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <nav class="link-list">
+                <a class="link-item" href="./head-page.html">首页</a>
+                <a class="link-item" href="#">管理系统</a>
+                <a class="link-item" href="#">关于</a>
+            </nav> 
+        </header>
+        <main id="container">
+            <ul class="tab-list container-list">
+                <li class="tab-item" href="panel-staff">人事管理</li>
+                <li class="tab-item" href="panel-room">房间管理</li>
+                <li class="tab-item" href="panel-roomOrder">订单管理</li>
+                <li class="tab-item" href="panel-incomeExp">收支管理</li>
+                <li class="tab-item" href="panel-service">服务管理</li>
+                <li class="tab-item" href="panel-d">客户评价</li>
+            </ul>
+            <div class="panel container-list" id="panel-staff">这是人事管理界面
+                <div class="seek-box">
+                    <input type="text" placeholder="输入员工号查询"> <button class="search-order">查询</button><button class="add-order">添加人员</button>
+                </div>
+                <form action="#" class="pop-menu staff-add">
+                    <div class="menu-item"><span>员工账号：</span><input type="text" id="staff-account"></div>
+                    <div class="menu-item"><span>员工名：</span><input type="text" id="staff-name"></div>
+                    <div class="menu-item"><span>员工电话：</span><input type="text" id="staff-phone"></div>
+                    <div class="menu-item"><span>员工工资：</span><input type="text" id="staff-salary"></div>
+                    <div class="menu-item"><span>员工准许：</span><input type="text" id="staff-permission"></div>
+                    <div class="menu-item"><span>员工部门：</span><input type="text" id="staff-dept"></div>
+                    <div class="menu-item"><span>员工密码：</span><input type="text" id="staff-pass"></div>
+                    <div class="menu-btn"><span class="submit">提交</span><span class="cancle">取消</span></div>
+                </form>
+                <table class="table-report order">
+                    <thead>
+                        <tr>
+                            <th>员工号</th><th>员工名</th><th>员工电话</th><th>部门</th><th>薪资</th><th>信息删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel container-list" id="panel-room">这是房间界面
+                <!-- <div class="room-oprate-menu">
+                    <input type="text" placeholder="yyyy-mm-dd"><input type="text" placeholder="yyyy-mm-dd"><button id="search-room">查询时间段内空房</button>
+                    <button id="add-room">增加房间</button><button id="delete-room">删除房间</button>
+                </div> -->
+                <div class="seek-box">
+                    <input type="text" placeholder="yyyy-mm-dd" class="first-input"><input type="text" placeholder="yyyy-mm-dd" class="last-input">
+                    <button class="search-order">查询时间段内空房</button><button class="add-order">添加房间</button>
+                </div>
+                <form action="#" class="pop-menu room-add">
+                    <div class="menu-item"><span>房间号：</span><input type="text" id="Croom-id"></div>
+                    <div class="menu-item"><span>房间楼层：</span><input type="text" id="Croom-floor"></div>
+                    <div class="menu-item"><span>房间类型：</span><input type="text" id="Croom-type"></div>
+                    <div class="menu-item"><span>房间价格：</span><input type="text" id="Croom-price"></div>
+                    <div class="menu-item"><span>房间状态：</span><input type="text" id="Croom-status"></div>
+                    <div class="menu-btn"><span class="submit">增加</span><span class="cancle">取消</span></div>
+                </form>
+                <ul class="room-state">
+                    <li><span class="state0"></span>空闲</li>
+                    <li><span class="state1"></span>预定</li>
+                    <li><span class="state2"></span>入住</li>
+                    <li><span class="state3"></span>维修</li>
+                </ul>
+                <div class="room-wrapper">
+                    <div class="room-list">
+                        <h3>豪华套间</h3>
+                        <span class="room-item state2">
+                            <h4>202</h4>
+                            <p>客人甲</p>
+                        </span>
+                        <span class="room-item state0">
+                            <h4>203</h4>
+                        </span>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="panel container-list" id="panel-roomOrder">
+                这里是订单管理
+                <div class="seek-box">
+                    <input type="text" placeholder="输入订单号查询"> <button class="search-order">查询</button><button class="add-order">添加订单</button>
+                    <!-- <input type="text" placeholder="yyyy-mm-dd"><input type="text" placeholder="yyyy-mm-dd"> <button>查询</button> -->
+                </div>
+                <form action="#" class="pop-menu room-add">
+                    <div class="menu-item"><span>房间号：</span><input type="text" id="room-num"></div>
+                    <div class="menu-item"><span>价格：</span><input type="text" id="room-price"></div>
+                    <div class="menu-item"><span>入住时间：</span><input type="text" placeholder="yyyy-mm-dd" id="room-start"><input type="text" placeholder="yyyy-mm-dd" id="room-end"></div>
+                    <div class="menu-item"><span>入住人：</span><input type="text" id="room-person"></div>
+                    <div class="menu-btn"><span class="submit">提交</span><span class="cancle">取消</span></div>
+                </form>
+                <form action="#" class="pop-menu room-modify">
+                    <div class="menu-item"><span>房间号：</span><input type="text" id="room-num"></div>
+                    <div class="menu-item"><span>价格：</span><input type="text" id="room-num"></div>
+                    <div class="menu-item"><span>入住时间：</span><input type="text" placeholder="yyyy-mm-dd" id="room-start"><input type="text" placeholder="yyyy-mm-dd" id="room-end"></div>
+                    <div class="menu-item"><span>用户人：</span><input type="text" id="room-person"></div>
+                    <div class="menu-btn"><span class="submit">提交</span><span class="cancle">取消</span></div>
+                </form>
+                <table class="table-report order">
+                    <thead>
+                        <tr>
+                            <th>订单号</th><th>房间号</th><th>价格</th><th>用户名</th><th>抵达日期</th><th>离开日期</th><th>信息修改</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                    
+                </table>
+            </div>
+            <div class="panel container-list" id="panel-incomeExp">这是收支列表
+                <div id="incomeExp">
+                    <ul class="tab-list income">
+                        <li class="tab-item" href="panel-in">收入统计</li>
+                        <li class="tab-item" href="panel-out">支出统计</li>
+                    </ul>
+                    <div class="panel" id="panel-in">
+                        <!-- 示例 -->
+                        <div><span>总计为：</span><span class="all-count"></span></div>
+                        <table class="table-report order">
+                            <thead>
+                                <tr>
+                                    <th>账单序号</th><th>收入类型</th><th>收入金额</th><th>收入时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel" id="panel-out">
+                        <div><span>总计为：</span><span class="all-count"></span></div>
+                        <table class="table-report order">
+                            <thead>
+                                <tr>
+                                    <th>账单序号</th><th>支出类型</th><th>支出金额</th><th>支出时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel container-list" id="panel-service">
+                <div class="seek-box">
+                    <input type="text" placeholder="输入服务号查询"> <button class="search-order">查询</button><button class="add-order">添加服务订单</button>
+                    <!-- <input type="text" placeholder="yyyy-mm-dd"><input type="text" placeholder="yyyy-mm-dd"> <button>查询</button> -->
+                </div>
+                <form action="#" class="pop-menu service-add">
+                    <div class="menu-item"><span>用户名：</span><input type="text" id="user-account"></div>
+                    <div class="menu-item"><span>房间号：</span><input type="text" id="service-room-id"></div>
+                    <div class="menu-item"><span>服务类型：</span><input type="text" id="service-type"></div>
+                    <div class="menu-item"><span>服务信息：</span><input type="text" id="service-info"></div>
+                    <div class="menu-item"><span>服务价格：</span><input type="text" id="service-price"></div>
+                    <div class="menu-btn"><span class="submit">提交</span><span class="cancle">取消</span></div>
+                </form>
+                <form action="#" class="pop-menu room-modify">
+                    <div class="menu-item"><span>房间号：</span><input type="text" id="room-num"></div>
+                    <div class="menu-item"><span>价格：</span><input type="text" id="room-num"></div>
+                    <div class="menu-item"><span>入住时间：</span><input type="text" placeholder="yyyy-mm-dd" id="room-start"><input type="text" placeholder="yyyy-mm-dd" id="room-end"></div>
+                    <div class="menu-item"><span>用户人：</span><input type="text" id="room-person"></div>
+                    <div class="menu-btn"><span class="submit">提交</span><span class="cancle">取消</span></div>
+                </form>
+                <table class="table-report order">
+                    <thead>
+                        <tr>
+                            <th>订单号</th><th>用户名</th><th>房间号</th><th>服务类型</th><th>服务信息</th><th>服务价格</th><th>信息删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel container-list" id="panel-d">这是评价列表
+                <section class="section-comment">
+                    <div class="form-comment">
+                        <textarea class="f-textarea" placeholder="请填写你的评论。"></textarea>
+                        <input class="f-btn" type="submit" value="评论一下">
+                    </div>
+                    <div class="comment-list">
+                        <div class="comment-item">
+                            <div class="comment-hd"><span class="item-time">2017-04-20 10:19</span><a class="item-user" href="#">子默</a></div>
+                            <div class="comment-bd">
+                                <p>酒店服务不错！</p>
+                            </div>
+                            <div class="comment-ft">
+                                <span class="ft-oper">删除评价</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./cookie.js"></script>
+    <script>
+        var baseURL = "https://toycarhotel.duckdns.org:10000";
+        var token = Cookie.get('token');
+        var userNickname = Cookie.get('userNickname');
+    </script>
+    <script src="./jquery.min.js"></script>
+    <script src="./js/roomOrder.js"></script>
+    <script src="./room.js"></script>
+    <script src="./tab.js"></script>
+    <script src="./comments.js"></script>
+    <script src="./js/incomeExp.js"></script>
+    <script src="./js/service.js"></script>
+    <script src="./js/staff.js"></script>
+    <script>
+        var tab1 = new Tab('container');
+        var incomeTab = new Tab('incomeExp');
+        var roomdata = [];
+        window.onload = function () {
+            $.get(
+                baseURL + "/hotel/staff/getIncome/all",
+                {"token":token},
+                function(result) {
+                    var allHTML = [];
+                    var count = 0;
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(item => {
+                            allHTML.push(addIncomeHTML(item));
+                            count += result.data.incomePrice;
+                        });
+                        //请求得到的内容加入到页面中
+                        $incomeContent.html(allHTML.join(""));
+                        $panelIn.find('.all-count').html(count);
+                    }
+                }
+            );
+            $.get(
+                baseURL + "/hotel/staff/getExp/all",
+                {"token":token},
+                function(result) {
+                    var allHTML = [];
+                    var count = 0;
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(item => {
+                            allHTML.push(addExpHTML(item));
+                            count += result.data.expPrice;
+                        });
+                        //请求得到的内容加入到页面中
+                        $expcomeContent.html(allHTML.join(""));
+                        $panelOut.find('.all-count').html(count);
+                    }
+                }
+            );
+            $.get(
+                baseURL + '/hotel/staff/roomOrder/findAll',
+                {"token":token},
+                function(result) {
+                    var allHtml = [];
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(element => {
+                            allHtml.push(addRoomOderHTML(element));
+                        });
+                        $roomOrderContent.html(allHtml.join(""));
+                    }
+                }
+            );
+            $.get(
+                baseURL + '/hotel/staff/serviceOrder/findAll',
+                {"token":token},
+                function(result) {
+                    var allHtml = [];
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(element => {
+                            allHtml.push(addServiceHTML(element));
+                        });
+                        $serviceOrderContent.html(allHtml.join(""));
+                    }
+                }
+            );
+            $.get(
+                baseURL + '/hotel/staff/findAll',
+                {"token":token},
+                function(result) {
+                    var allHtml = [];
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(element => {
+                            allHtml.push(addStaffHTML(element));
+                        });
+                        $staffOrderContent.html(allHtml.join(""));
+                    }
+                }
+            );
+            $.get(
+                baseURL + '/hotel/staff/room/findAll',
+                {"token":token},
+                function(result) {
+                    var rooms1 = ['<div class="simple-room"><h3>普通房间</h3>'];
+                    var rooms2 = ['<div class="luxury-room"><h3>豪华房间</h3>'];
+                    var rooms3 = ['<div class="other-room"><h3>其他房间</h3>'];
+                    result = JSON.parse(result);
+                    if(result.code) {
+                        result.data.forEach(element => {
+                            if(element.roomType === 1) {
+                                rooms1.push(addRoomHTML(element));
+                            } 
+                            else if(element.roomType === 2) {
+                                rooms2.push(addRoomHTML(element));
+                            } 
+                            else {
+                                rooms3.push(addRoomHTML(element));
+                            }
+                        });
+
+                        rooms1.push('</div>');
+                        rooms2.push('</div>');
+                        roomdata = result.data;
+                        $roomContent.html(rooms1.join("") + rooms2.join("") + rooms3.join(""));
+                    }
+                }
+            );
+        };
+    </script>
+</body>
+</html>

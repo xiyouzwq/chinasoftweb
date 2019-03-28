@@ -1,0 +1,131 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+.panel ul.room-state {
+    padding: 20px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.panel .room-state li {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 12px;
+}
+.panel .room-state li span {
+    display: inline-block;   
+    height: 12px;
+    width: 12px;
+    margin: 0 10px;
+}
+.state0 {
+    background-color: aquamarine;
+}
+.state1 {
+    background-color: antiquewhite;
+}
+.state2 {
+    background-color: cornflowerblue;
+}
+.state3 {
+    background-color: coral; 
+}
+p,h4 {
+    padding: 0;
+    margin: 0;
+}
+.room-wrapper {
+    padding: 10px;
+}
+.panel .room-list h3 {
+    font-size: 16px;
+    margin: 16px 3px;
+}
+.panel .room-list .room-item {
+    display: inline-block;
+    width: 84px;
+    height: 42px;
+    margin-left: 3px;
+    position: relative;
+}
+.panel .room-list .room-item:hover {
+    cursor: pointer;
+}
+.panel .room-list .room-item h4 ,.panel .room-list .room-item p{
+    /* display: inline-block; */
+    font-size: 12px;
+    color: #444;
+    position: absolute;
+    left: 5px;
+}
+.panel .room-list .room-item h4 {
+    top: 3px; 
+}
+.panel .room-list .room-item p {
+    bottom: 3px;
+}
+input, select {
+    box-shadow: 0;
+    border: 1px solid #ccc;
+}
+.pop-menu {
+    width: 460px;
+    border: 1px solid #ccc;
+    padding: 10px 5px;
+}
+.pop-menu .menu-item {
+    margin-bottom: 10px;
+}
+.pop-menu .menu-item span {
+    width: 130px;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: right;
+}
+.pop-menu .menu-item select {
+    width: 70px;
+    display: inline-block;
+}
+.pop-menu .menu-item input {
+    width: 150px;
+}
+#price {
+    text-align: left;
+}
+.pop-menu {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    background-color: #fff;
+    padding-top: 40px;
+}
+.pop-menu .menu-btn {
+    margin: 20px 5px;
+    padding: 0 60px;
+}
+.pop-menu .menu-btn span {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    margin: 5px 0;
+    line-height: 40px;
+    font-size: 14px;
+    background-color: #188eee;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+.pop-menu .menu-btn span:hover {
+    cursor: pointer;
+}
+.pop-menu .menu-btn span:first-child {
+    margin-right: 45px;
+}
+.pop-menu .menu-btn span:last-child {
+    margin-left: 45px;
+}

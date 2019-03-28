@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户界面</title>
+    <link rel="stylesheet" href="./main-page.css">
+    <link rel="stylesheet" href="./css/banner.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <nav class="link-list">
+                <a class="link-item" href="#">首页</a>
+                <a class="link-item" href="./main-page.html">管理系统</a>
+                <a class="link-item" href="#">关于</a>
+            </nav> 
+        </header>
+        <main id="container">
+            <div id="banner">
+                <div class="pic">
+                    <ul>
+                        <li>
+                            <a href="###"><img src="./img/hotel-5.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-1.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-2.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-3.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-4.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-5.jpg"></a>
+                        </li>
+                        <li>
+                            <a href="###"><img src="./img/hotel-1.jpg"></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="tab">
+                    <ul>
+                        <li class="on"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="btn">
+                    <a href="###" id="prev">
+                        &lt;</a>
+                            <a href="###" id="next">&gt;</a>
+                </div>
+            </div>
+            <p>3112酒店，又称邮电帆船酒店。邮电最豪华的酒店，翻译成汉语又称“玩具车酒店””。它是邮电第一家的7星级酒店。</p>
+            <p>由于拥有高素质的环境以及丰富多彩的文化，旅游者以模特、艺术家、商人等高收入阶层居多。,知名企业家晁昱投资兴建了美轮美奂的酒店。由中国设计师刘智林设计。建立在海滨的一个人工岛上，是一个帆船形的塔状建筑，一共有56层，321米高，它正对着jumeirah beach酒店，客房面积从170平方米到 780平方米不等，最低房价也要900美元，最高的总统套房则要 28000美元。 实际上这是淡季的最低价，按这个价格往往是订不到房的。酒店房价虽然不菲，客源却依然踊跃.“不怕价高，只怕货差”，这句商界名言再次得到印证。</p>
+        </main>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            function Banner(ele) {
+                this.$tabLi = $(ele.tabLi); //小圆点
+                this.$picUl = $(ele.picUl);
+                this.$banner = $(ele.banner);
+                this.$btn = $(ele.btn);
+                this.$btnA = $(ele.btnA);
+                this.imgWidth = $(ele.picLi).width();
+                this.index = 0;
+                this.nowTime = new Date();
+                this.timer = null;
+                this.tabLiClick(); //小圆点点击切换banner
+                this.bannerHover(ele.delayTime); //鼠标移入停止自动切换,移出继续自动切换
+                this.btnAClick(); //左右按钮点击切换banner
+                this.autoPlay(ele.delayTime); //自动切换banner
+            }
+
+            Banner.prototype.tabLiClick = function() {
+                var _this = this;
+                _this.$tabLi.click(function() {
+                    //获取当前的序列号
+                    _this.index = $(this).index();
+                    $(this).addClass('on').siblings().removeClass('on');
+                    //动画animate({属性 ： 值}，时间);
+                    _this.$picUl.animate({
+                        marginLeft: -_this.imgWidth * (_this.index + 1) + 'px'
+                    }, 300);
+                });
+            };
+
+            Banner.prototype.bannerHover = function(delayTime = 2000) {
+                var _this = this;
+                _this.$banner.hover(function() {
+                    _this.$btn.show();
+                    clearInterval(_this.timer);
+                }, function() {
+                    _this.$btn.hide();
+                    _this.autoPlay(delayTime);
+                });
+            };
+
+            Banner.prototype.btnAClick = function() {
+                var _this = this;
+                _this.$btnA.click(function() {
+                    if (new Date() - _this.nowTime > 300) //当前时间减去上一次时间大于300毫秒才执行
+                    {
+                        _this.nowTime = new Date();
+                        var i = $(this).index();
+                        //判断点击哪个按钮
+                        i ? _this.index++ : _this.index--;
+                        fn(_this);
+                    }
+                }).mousedown(function() {
+                    return false;
+                });
+            };
+
+            Banner.prototype.autoPlay = function(delayTime = 2000) {
+                var _this = this;
+                //开启定时器
+                _this.timer = setInterval(function() {
+                    _this.index++;
+                    fn(_this);
+                }, delayTime);
+            };
+
+            function fn(_this) {
+                var liIndex = _this.index;
+                //判断下标，最后一张时按钮也要回到第一个
+                if (liIndex >= _this.$tabLi.length) {
+                    liIndex = 0;
+                } else if (liIndex < 0) {
+                    liIndex = _this.$tabLi.length - 1;
+                }
+                _this.$tabLi.eq(liIndex).addClass('on').siblings().removeClass('on');
+                _this.$picUl.animate({
+                    marginLeft: -_this.imgWidth * (_this.index + 1) + 'px'
+                }, 300, function() { //回调函数判断，让图片瞬间复位
+                    if (_this.index == _this.$tabLi.length) {
+                        _this.$picUl.css('marginLeft', -_this.imgWidth + 'px');
+                        _this.index = 0;
+                    } else if (_this.index < 0) {
+                        _this.$picUl.css('marginLeft', -_this.imgWidth * (_this.$tabLi.length) + 'px');
+                        _this.index = _this.$tabLi.length - 1;
+                    }
+                });
+            }
+
+            var banner = new Banner({
+                tabLi: '#banner .tab li',
+                picUl: '#banner .pic ul',
+                banner: '#banner',
+                btn: '#banner .btn',
+                btnA: '#banner .btn a',
+                picLi: '#banner .pic li',
+                //delayTime需大于300
+                delayTime: 2000
+            });
+
+        });
+    </script>
+</body>
+</html>

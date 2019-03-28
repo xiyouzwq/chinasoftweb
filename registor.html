@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册新用户</title>
+    <link rel="stylesheet" href="./registor.css">
+</head>
+<body>
+    <div id="container">
+        <ul class="tab-list">
+            <li class="tab-item" href="panel-1">第一项</li>
+            <li class="tab-item" href="panel-2">第二项</li>
+            <li class="tab-item" href="panel-3">已完成</li>
+        </ul>
+        <div class="panel" id="panel-1">
+            <form action="#" class="form">
+                <div class="f-item"><input class="f-text" type="text" name="username" placeholder="请输入用户名"></div>
+                <div class="f-item"><input class="f-text" type="password" name="pwd" placeholder="请输入密码"></div>
+                <div class="f-item"><input class="f-text" type="password" name="pwd" placeholder="请再次输入密码"></div>
+                <span class="next-step">下一步</span>
+            </form>
+        </div>
+        <div class="panel" id="panel-2">
+            <form action="#" class="form">
+                <div class="f-item"><input class="f-text" type="text" name="nick" placeholder="请输入昵称"></div>
+                <div class="f-item"><input class="f-text" type="text" name="post" placeholder="请输入联系邮箱"></div>
+                <div class="f-item"><input class="f-text" type="text" name="tel" placeholder="请输入联系电话"></div>
+                <span class="next-step">下一步</span>
+            </form>
+        </div>
+        <div class="panel" id="panel-3">
+            <h2>注册成功！为您跳转至主页</h2>
+        </div>
+    </div>
+    <!-- <script src="./tab.js"></script> -->
+    <script>
+    window.onload = function () {
+        var container = document.getElementById("container");
+        var tabItems = container.querySelectorAll(".tab-item");
+        var panels = container.querySelectorAll(".panel");
+        var steps = container.querySelectorAll(".next-step");
+        var activeIndex = 0;
+
+        function active(index) {
+            tabItems.forEach(function(tabItem, i) {
+                var targetId = tabItem.getAttribute('href');
+                var targetPanel = container.querySelector('#' + targetId);
+                if(!targetPanel) return;
+                if(index === i) {
+                    targetPanel.style.display = 'block';
+                    tabItem.classList.add('active');
+                    activeIndex = i;
+                } else {
+                    targetPanel.style.display = 'none';
+                    tabItem.classList.remove('active');
+                }
+            });
+        }
+        
+        steps.forEach(function(item, i){
+            item.addEventListener('click',function(e) {
+                activeIndex = i + 1;
+                active(activeIndex);
+                if(activeIndex === 2) {
+                    setTimeout(window.location.href = "./head-page.html",1000);
+                }
+            });
+        });
+
+        active(activeIndex);
+        
+    }
+    </script>
+</body>
+</html>

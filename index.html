@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>酒店登陆</title>
+    <link rel="stylesheet" href="./load.css">
+</head>
+<body>
+    <div class="form">
+        <div class="f-item"><input class="f-text" type="text" name="username" placeholder="用户名"></div>
+        <div class="f-item"><input class="f-text" type="password" name="pwd" placeholder="密码"></div>
+        <!-- <div class="f-item"><input class="f-checkbox" type="checkbox" name="remember">下次自动登录</div> -->
+        <div class="f-item"><div class="f-btn">登陆</div></div>
+        <div class="f-item">
+            <input class="f-checkbox" type="checkbox" name="remember">管理员选择
+            <a href="./registor.html" target="_blank">注册新用户</a>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./cookie.js"></script>
+    <script>
+        var $btn = $('.f-item .f-btn');
+        var r = null;
+        var baseURL = 'https://toycarhotel.duckdns.org:10000';
+        $btn.on('click',function(event) {
+            var data = {};
+            var Account = $('[name=username]').val();
+            var Pass = $('[name=pwd]').val();
+            if($('.f-item .f-checkbox').prop('checked')) {
+                data.staffAccount = Account;
+                data.staffPass = Pass;
+                $.post(
+                    baseURL + "/hotel/staffLogin",
+                    data,
+                    function(result) {
+                        console.log(result);
+                        result = JSON.parse(result);
+                        r = result;
+                        console.log(r.code);
+                        if(result.code === 1) {//cookie可能没设置上
+                            Cookie.set('userNickname',result.data.userNickname,'toycarhotel.duckdns.org');
+                            Cookie.set('token',result.token,'toycarhotel.duckdns.org');
+                            Cookie.set('userAccount',result.data.userAccount,'toycarhotel.duckdns.org');
+                            window.location.href = "./head-page.html";
+                        } else {
+                            alert("登录失败！用户名或密码错误");
+                        }
+                    }
+                )
+            } else {
+                data.userAccount = Account;
+                data.userPass = Pass;
+                $.post(
+                    baseURL + "/hotel/login",
+                    data,
+                    function(result) {
+                        result = JSON.parse(result);
+                        if(result.code === 1) {
+                            Cookie.set('userNickname',result.data.userNickname,'toycarhotel.duckdns.org');
+                            Cookie.set('token',result.token,'toycarhotel.duckdns.org');
+                            Cookie.set('userAccount',result.data.userAccount,'toycarhotel.duckdns.org');
+                            window.location.href = "./head-page.html";
+                        } else {
+                            alert("登录失败！用户名或密码错误");
+                        }
+                    }
+                )
+            }
+        });
+    </script>
+</body>
+</html>

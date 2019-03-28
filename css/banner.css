@@ -1,0 +1,91 @@
+* {
+	margin:0;
+	padding:0;
+}
+#wapper {
+    min-height: 100vh;
+}
+#banner {
+	width:500px;
+    height:300px;
+	margin:20px auto;
+	/*border:1px solid red;
+	*/
+    position:relative;
+}
+#banner .pic {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+li {
+	list-style:none;
+}
+#banner .pic ul {
+	width:1000%;
+	overflow:hidden;
+	margin-left:-500px;
+}
+#banner .pic ul li {
+	float:left;
+}
+#banner .tab {
+	width:70px;
+	height:14px;
+	/*background:rgba(255,255,255,0.5);
+	*/
+    position:absolute;
+	left:50%;
+	margin-left:-35px;
+	bottom:10px;
+	border-radius:7px;
+}
+#banner .tab ul li {
+	width:10px;
+	height:10px;
+	border-radius:100%;
+	background:#999;
+	float:left;
+	margin:2px 2px;
+	cursor:pointer;
+}
+#banner .tab ul li.on {
+	background:#ffffff;
+}
+#banner .btn {
+	display:none;
+}
+#banner .btn a {
+	display:block;
+	width:40px;
+	height:40px;
+	text-decoration:none;
+	background:rgba(0,0,0,0.3);
+	color:#fff;
+	font-size:26px;
+	font-weight:bold;
+	text-align:center;
+	line-height:40px;
+	position:absolute;
+	top:50%;
+	margin-top:-20px;
+}
+#prev {
+	left:5px;
+}
+#next {
+	right:5px;
+}
+#banner .btn a.on {
+	background:rgba(0,0,0,0.6)
+}
+#banner .btn a:hover {
+	background:rgba(0,0,0,0.6)
+}
+p {
+    font-size: 16px;
+    font-family: monospace;
+	line-height: 1.8;
+	text-indent: 2em;
+	padding: 10px 0;
+}

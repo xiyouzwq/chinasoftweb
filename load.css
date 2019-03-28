@@ -1,0 +1,61 @@
+/*
+* 题目要求：
+* 1、设置除了最后一个表单item之外的底部外边距为10px
+* 2、设置鼠标滑过输入框，改变边框颜色（border-color）为“#188eee”
+* 3、设置提交按钮光标（cursor）为手型
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    font-size: 14px;
+    width: 270px;
+    padding: 10px;
+    margin: 120px auto 0; 
+}
+
+.form .f-item:not(:last-child) {
+    /* 设置底部外边距为10px */
+    margin-bottom: 10px;
+}
+
+.form .f-text {
+    width: 250px;
+    padding: 9px 4px;
+    border: 1px solid #ccc;
+}
+
+.form .f-text:focus {
+    /* 宽度 | 样式 | 颜色 */
+    outline: 0;
+}
+
+.form .f-text:hover {
+    /* 设置边框颜色为“#188eee” */
+    border-color: #188eee;
+}
+
+.form .f-btn {
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #188eee;
+    color: #fff;
+    border: 0;
+    /* 设置光标类型（cursor）为手型 */
+    cursor: pointer;
+}
+.form a {
+    text-decoration: none;
+    color: #aaa;
+    float: left;
+}
+.form a:hover {
+    color: #188eee;
+}
+.form a:last-child {
+    float: right;
+}

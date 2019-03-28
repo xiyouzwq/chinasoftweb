@@ -1,0 +1,7 @@
+#incomExp .panel {
+    margin-left: 0;
+}
+.tab-list.income li {
+    display: inline-block;
+    width: 260px;
+}

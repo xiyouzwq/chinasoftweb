@@ -1,0 +1,63 @@
+.section-comment, .comment-list {
+	padding: 20px 10px;
+}
+.form-comment {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.section-comment .f-textarea {
+	height: 5em;
+    /* display: block; */
+    width: 100%;
+	border-color: #dbdbdb;
+	padding: 3px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.section-comment .f-textarea:hover {
+	border-color: #ccc;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+.section-comment .f-btn {
+	padding: 7px 12px;
+	background-color: #188eee;
+	color: #f5f5f5;
+	border: 0;
+    border-radius: 3px;
+    float: right;
+}
+.section-comment .f-btn:hover {
+    cursor: pointer;
+}
+.section-comment .comment-item {
+	background-color: #f5f5f5;
+	margin: 10px 0;
+}
+.section-comment .comment-item .comment-hd {
+	font-size: 12px;
+	padding: 5px;
+}
+
+.section-comment .comment-item .comment-hd .item-time {
+	color: #666;
+	padding: 5px;
+}
+.section-comment .comment-item .comment-hd .item-user {
+	color: #147de2;
+	padding: 5px;
+}
+.section-comment .comment-list .comment-bd p {
+    padding-left: 10px; 
+}
+.section-comment .comment-item .comment-ft {
+	text-align: right;
+	padding: 5px;
+}
+.section-comment .comment-item .comment-ft .ft-oper {
+	padding: 5px;
+	font-size: 12px;
+	color: #147de2;
+}
+.section-comment .comment-item .comment-ft .ft-oper:hover {
+	cursor: pointer;
+}

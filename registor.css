@@ -1,0 +1,80 @@
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+#container {
+    width: 360px;
+    margin: 60px auto;
+}
+
+.tab-item {
+    width: 116px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+}
+.panel {
+    height: 210px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.panel {
+    border: 1px solid #ccc;
+    width: 100%;
+}
+#container .tab-item.active {
+    border-bottom: none;
+    color: #fff;
+    background: #ccc;
+}
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    font-size: 14px;
+    width: 270px;
+    padding: 10px;
+    margin: 10px auto 0; 
+}
+
+.form .f-item:not(:last-child) {
+    /* 设置底部外边距为10px */
+    margin-bottom: 10px;
+}
+
+.form .f-text {
+    width: 250px;
+    padding: 9px 4px;
+    border: 1px solid #ccc;
+}
+
+.form .f-text:focus {
+    /* 宽度 | 样式 | 颜色 */
+    outline: 0;
+}
+
+.form .f-text:hover {
+    /* 设置边框颜色为“#188eee” */
+    border-color: #188eee;
+}
+.next-step {
+    width: 80px;
+    height: 36px;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #188eee;
+    font-size: 14px;
+    line-height: 36px;
+    float: right;
+}
+.next-step:hover {
+    cursor: pointer;
+}
