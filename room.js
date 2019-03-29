@@ -37,7 +37,8 @@ function roomMessageHtml (ele) {
         textHtml.push('<div class="menu-item"><span>房间价格：</span><span>'+ele.roomPrice+'</span></div>');
         textHtml.push('<div class="menu-item"><span>房间状态：</span><span>'+selectRoomStatus(ele.roomStatus)+'</span></div>');
         textHtml.push('<div class="menu-item room-time"><span>当前时间段：</span><input class="first-input" value="'+ $room.find(".seek-box .first-input").val() +'\" /><input class="last-input" value="'+$room.find(".seek-box .last-input").val()+'\"/"></div>');
-        textHtml.push('<div class="menu-item"><span>用户账号：</span><input class="user-account" value="'+ Cookie.get('userAccount') +'"/></div>');
+        // textHtml.push('<div class="menu-item"><span>用户账号：</span><input class="user-account" value="'+ Cookie.get('userAccount') +'"/></div>');
+        textHtml.push('<div class="menu-item"><span>用户账号：</span><input class="user-account" /></div>');
         textHtml.push('<div class="menu-btn"><span class="submit">订房</span><span class="cancle">取消</span><span class="delete-room">删除房间</span><span>维修房间</span></div>')
         textHtml.push('</div>');
         return textHtml.join("");
