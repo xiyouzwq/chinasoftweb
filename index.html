@@ -20,6 +20,7 @@
     </div>
     <script src="./jquery.min.js"></script>
     <script src="./cookie.js"></script>
+    <script src="./js/SHA.js"></script>
     <script>
         var $btn = $('.f-item .f-btn');
         var r = null;
@@ -28,6 +29,7 @@
             var data = {};
             var Account = $('[name=username]').val();
             var Pass = $('[name=pwd]').val();
+            Pass = SHA1(''+Pass);
             if($('.f-item .f-checkbox').prop('checked')) {
                 data.staffAccount = Account;
                 data.staffPass = Pass;
