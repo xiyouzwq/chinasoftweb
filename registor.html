@@ -16,10 +16,10 @@
         </ul>
         <div class="panel" id="panel-1">
             <form action="#" class="form">
-                <div class="f-item"><input class="f-text" type="text" name="username" placeholder="请输入用户名"></div>
-                <div class="f-item"><input class="f-text" type="password" name="pwd" placeholder="请输入密码"></div>
-                <div class="f-item"><input class="f-text" type="password" name="pwd" placeholder="请再次输入密码"></div>
-                <span class="next-step">下一步</span>
+                <div class="f-item"><input class="f-text" id="user-name" type="text" name="username" placeholder="请输入用户名"></div>
+                <div class="f-item"><input class="f-text" id="first-input" type="password" name="pwd" placeholder="请输入密码"></div>
+                <div class="f-item"><input class="f-text" id="last-input" type="password" name="pwd" placeholder="请再次输入密码"></div>
+                <span class="next-step" id="first-step">下一步</span>
             </form>
         </div>
         <div class="panel" id="panel-2">
@@ -34,7 +34,8 @@
             <h2>注册成功！为您跳转至主页</h2>
         </div>
     </div>
-    <!-- <script src="./tab.js"></script> -->
+    <script src="./jquery.min.js"></script>
+    <script src="./js/SHA.js"></script>
     <script>
     window.onload = function () {
         var container = document.getElementById("container");
@@ -72,6 +73,33 @@
         active(activeIndex);
         
     }
+    var $panel1 = $('#panel-1');
+    var $next = $panel1.find('#first-step');
+    $next.on('click',function() {
+        var name = $panel1.find('#user-name').val();
+        var first = $panel1.find('#first-input').val();
+        var last = $panel1.find('#last-input').val();
+        var baseURL = 'https://toycarhotel.duckdns.org:10000';
+        var data = {};
+        first = SHA1(''+first);
+        data.userAccount = name;
+        data.userPass = first;
+        data.userNickname = 'Venki';
+        $.post(
+            baseURL + "/hotel/register",
+            data,
+            function(result) {
+                result = JSON.parse(result);
+                console.log(result.code);
+                if(result.code == 1) {
+                    console.log('注册完成');
+                } else {
+                    console.log('注册失败');
+                }
+            }
+        )
+
+    });
     </script>
 </body>
 </html>
