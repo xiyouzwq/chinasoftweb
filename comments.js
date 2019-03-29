@@ -14,8 +14,8 @@ comBtn.on('click',function(event) {
     var str = comText.val();
     if(str) {
         var myCom = {};
-        myCom.nick = 'Venki';
-        myCom.time = '2019-03-22';
+        myCom.nick = Cookie.get('userNickname') || 'Venki';
+        myCom.time = '2019-03-29';
         myCom.comment = str;
         var htmlText = addComment(myCom);
         $commentList.prepend(htmlText);

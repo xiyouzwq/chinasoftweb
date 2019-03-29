@@ -40,9 +40,9 @@
                         r = result;
                         console.log(r.code);
                         if(result.code === 1) {//cookie可能没设置上
-                            Cookie.set('userNickname',result.data.userNickname,'toycarhotel.duckdns.org');
+                            Cookie.set('userNickname',result.data.staffName,'toycarhotel.duckdns.org');
                             Cookie.set('token',result.token,'toycarhotel.duckdns.org');
-                            Cookie.set('userAccount',result.data.userAccount,'toycarhotel.duckdns.org');
+                            Cookie.set('userAccount',result.data.staffAccount,'toycarhotel.duckdns.org');
                             window.location.href = "./head-page.html";
                         } else {
                             alert("登录失败！用户名或密码错误");
